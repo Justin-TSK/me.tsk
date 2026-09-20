@@ -3,8 +3,12 @@ import { projectsData } from "@/data/projects";
 import { skillsData } from "@/app/data/skills";
 import { SiGithub } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
+import TypewriterText from "@/components/TypewriterText";
+import Link from "next/link";
+import { getAllPosts } from "@/lib/blog";
 
 export default function Home() {
+  const recentPosts = getAllPosts().slice(0, 3);
   return (
     <div className="min-h-full bg-zinc-950 text-zinc-100">
             <div className="pointer-events-none fixed inset-0 overflow-hidden">
@@ -22,34 +26,41 @@ export default function Home() {
 
       <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
         <p className="font-mono text-sm tracking-wide text-cyan-300/90">
-          ML × Web
+        : JT // AI & Code
         </p>
         <nav className="flex gap-6 text-sm text-zinc-400">
-          <a href="#about" className="transition-colors hover:text-zinc-100">
-            À propos
-          </a>
-          <a href="#projects" className="transition-colors hover:text-zinc-100">
-            Projets
-          </a>
-          <a href="#contact" className="transition-colors hover:text-zinc-100">
-            Contact
-          </a>
-        </nav>
+  <a href="#about" className="transition-colors hover:text-zinc-100">
+    À propos
+  </a>
+  <a href="#projects" className="transition-colors hover:text-zinc-100">
+    Projets
+  </a>
+  <Link href="/blog" className="transition-colors hover:text-zinc-100">
+    Articles
+  </Link>
+  <a href="#contact" className="transition-colors hover:text-zinc-100">
+    Contact
+  </a>
+</nav>
       </header>
 
       <main className="relative z-10">
       <section className="mx-auto flex min-h-[70vh] w-full max-w-6xl flex-col items-center justify-center gap-12 px-6 py-20 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-2xl">
-            <p className="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-cyan-400/80">
-              Portfolio étudiant
-            </p>
-            <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Étudiant en Machine Learning & Développeur Web
-            </h1>
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-cyan-400/80">
+  <TypewriterText text="~/justin" />
+</p>
+            <h1 className="font-mono text-2xl font-medium leading-snug tracking-tight text-white sm:text-3xl lg:text-4xl">
+  <span className="text-violet-400">print</span>
+  <span className="text-zinc-500">(</span>
+    <span className="text-white">
+  "De la conception de la logique au déploiement de solutions d'intelligence artificielle."
+</span>
+  <span className="text-zinc-500">)</span>
+  <span className="ml-1 inline-block h-6 w-[2px] animate-pulse bg-cyan-400 align-middle sm:h-7 lg:h-8" />
+</h1>
             <p className="mt-6 text-lg leading-8 text-zinc-400">
-              Je construis des modèles d’apprentissage automatique et les
-              déploie derrière des interfaces web claires, rapides et
-              accessibles — du notebook jusqu’au produit.
+            Je conçois des architectures logicielles et des modèles d'intelligence artificielle pour résoudre des problèmes complexes.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a href="#projects" className="inline-flex h-12 items-center justify-center rounded-full bg-cyan-400 px-7 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300">
@@ -60,7 +71,6 @@ export default function Home() {
               </a>
             </div>
           </div>
-
           <div className="relative w-full max-w-2xl shrink-0">
             <div className="overflow-hidden rounded-xl border border-zinc-700 bg-zinc-900/90 shadow-2xl shadow-cyan-500/10">
               <div className="flex items-center gap-1.5 border-b border-zinc-700 bg-zinc-800/80 px-4 py-2.5">
@@ -116,40 +126,129 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            <div className="mt-6 flex justify-center sm:hidden">
+              <img
+                src="/photo.jpg"
+                alt="Justin Tseke-Tseke"
+                className="h-44 w-36 rounded-lg border border-zinc-700 object-cover shadow-xl shadow-cyan-500/10"
+              />
+            </div>
           </div>
         </section>
 
-        <section id="about" className="scroll-mt-8 mx-auto w-full max-w-6xl px-6 py-20">
-          <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-            À propos & Compétences
+        <section id="about" className="scroll-mt-8 mx-auto w-full max-w-6xl px-6 pt-20 pb-8">
+        <p className="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-cyan-400/80">
+  <TypewriterText text="~/parcours" />
+</p>
+            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            De footballeur à développeur
           </h2>
-          <p className="mt-2 font-mono text-sm text-cyan-400/80">
-            Là où l’IA rencontre le code
-          </p>
+          <p className="mt-2 text-zinc-400">
+            apres une carriere foireuse en football, j'ai decouvert le developpement web et c'est devenu une passion.<br />
+            plus tard, j'ai decouvert l'intelligence artificielle et c'est devenu une autre passion.<br />
+            J'ai commencé par aprendre le developpement web en autodidacte, puis j'ai suivi une formation en intelligence artificielle.<br />
+            Je suis maintenant maître en intelligence artificielle et développeur full stack passionné par l'intelligence artificielle et le développement web.
+            </p>
+            <div className="mt-10 space-y-6 border-l border-zinc-700 pl-6">
+  <div className="relative">
+    <span className="absolute -left-[27px] top-1.5 h-3 w-3 rounded-full border-2 border-zinc-950 bg-cyan-400" />
+    <p className="font-mono text-xs uppercase tracking-[0.2em] text-cyan-400/80">
+      2024
+    </p>
+    <h3 className="mt-1 text-base font-medium text-white">
+      Baccalauréat série D
+    </h3>
+    <p className="text-sm text-zinc-400">GS Atlas · Brazzaville</p>
+  </div>
 
-          <div className="mt-10">
-            <article className="rounded-2xl border border-cyan-500/20 bg-zinc-900/60 p-6 shadow-[0_0_24px_rgba(34,211,238,0.08)]">
-              <div className="flex flex-wrap gap-2">
-                {skillsData.map((skill, idx) => {
-                  const Icon = skill.icon;
-                  return (
-                    <span key={idx} className="flex items-center gap-1.5 rounded-lg border border-zinc-700 bg-zinc-800/80 px-3 py-1 font-mono text-xs text-zinc-300">
-                      <Icon className="h-3.5 w-3.5" style={{ color: skill.color }} />
-                      {skill.name}
-                    </span>
-                  );
-                })}
-              </div>
+  <div className="relative">
+    <span className="absolute -left-[27px] top-1.5 h-3 w-3 rounded-full border-2 border-zinc-950 bg-cyan-400" />
+    <p className="font-mono text-xs uppercase tracking-[0.2em] text-cyan-400/80">
+      2025
+    </p>
+    <h3 className="mt-1 text-base font-medium text-white">
+      Diplôme de langue russe
+      <p className="text-sm text-zinc-400">Gubkin Russian State University of Oil and Gaz · Moscou</p>
+    </h3>
+  </div>
+
+  <div className="relative">
+    <span className="absolute -left-[27px] top-1.5 h-3 w-3 rounded-full border-2 border-zinc-950 bg-violet-400" />
+    <p className="font-mono text-xs uppercase tracking-[0.2em] text-violet-400/80">
+      2025 — 2029
+    </p>
+    <h3 className="mt-1 text-base font-medium text-white">
+      Business Informatics
+    </h3>
+    <p className="text-sm text-zinc-400">
+    National University of Science and Technology MISIS · Moscou
+      <span className="text-violet-300">— en cours</span>
+    </p>
+  </div>
+</div>
+
+          <div className="mt-30">
+            <article className="rounded-2xl border border-cyan-500/20 bg-zinc-900/60 p-6 lg:p-10 shadow-[0_0_24px_rgba(34,211,238,0.08)]">
+            <div className="flex flex-wrap gap-2 lg:gap-3">
+  {skillsData.map((skill, idx) => {
+    const Icon = skill.icon;
+    return (
+      <span key={idx} className="flex items-center gap-1.5 rounded-lg border border-zinc-700 bg-zinc-800/80 px-3 py-1 font-mono text-xs text-zinc-300 lg:gap-2 lg:px-4 lg:py-2 lg:text-sm">
+        <Icon className="h-3.5 w-3.5 lg:h-4 lg:w-4" style={{ color: skill.color }} />
+        {skill.name}
+      </span>
+    );
+  })}
+</div>
             </article>
           </div>
         </section>
 
-        <section id="projects" className="scroll-mt-8 mx-auto w-full max-w-6xl px-6 py-20">
+        <section id="projects" className="scroll-mt-8 mx-auto w-full max-w-6xl px-6 pt-8 pb-20">
+        <section id="articles" className="scroll-mt-8 mx-auto w-full max-w-6xl px-6 py-20">
+          <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            Articles
+          </h2>
+          <p className="mt-2 text-zinc-400">
+            Notes et réflexions sur le développement web et l&apos;intelligence artificielle.
+          </p>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {recentPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 transition duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_28px_rgba(34,211,238,0.12)]"
+              >
+                <p className="font-mono text-xs text-zinc-500">{post.date}</p>
+                <h3 className="mt-2 text-base font-medium text-white transition duration-300 group-hover:text-cyan-300">
+                  {post.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-zinc-400 line-clamp-3">
+                  {post.summary}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8">
+            <Link
+              href="/blog"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200"
+            >
+              Voir tous les articles
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </Link>
+          </div>
+        </section>
           <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
             Projets
           </h2>
           <p className="mt-2 text-zinc-400">
-            Quelques réalisations à la croisée du machine learning et du web.
+          Ce que je construis
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {projectsData.map((project) => (
