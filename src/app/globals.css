@@ -25,3 +25,53 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ===== Serpent de compétences ===== */
+@keyframes skills-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes skills-wave {
+  0%, 100% { transform: translateY(calc(var(--wave) * -1)); }
+  50%      { transform: translateY(var(--wave)); }
+}
+
+/* Sur mobile (< 768px) : pas d'animation de défilement horizontal ni d'ondulation verticale */
+.skills-track,
+.skills-item {
+  animation: none;
+}
+
+/* Sur desktop (>= 768px) : serpent fluide animé */
+@media (min-width: 768px) {
+  .skills-viewport {
+    --wave: 16px; /* amplitude de la vague (tablette/desktop) */
+  }
+
+  .skills-track {
+    animation: skills-marquee 50s linear infinite;
+  }
+
+  .skills-item {
+    animation: skills-wave 3.5s ease-in-out infinite;
+  }
+
+  .skills-viewport:hover .skills-track,
+  .skills-viewport:hover .skills-item {
+    animation-play-state: paused;
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-viewport {
+    --wave: 28px; /* amplitude de la vague (grand écran) */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-track,
+  .skills-item {
+    animation: none !important;
+  }
+}
