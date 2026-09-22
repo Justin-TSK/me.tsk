@@ -9,6 +9,7 @@ import { getAllPosts } from "@/lib/blog";
 import SkillsSnake from "@/components/SkillsSnake";
 import SiteHeader from "@/components/SiteHeader";
 import SiteBackground from "@/components/SiteBackground";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   const recentPosts = getAllPosts().slice(0, 3);
@@ -231,18 +232,23 @@ export default function Home() {
         </section>
 
         <section id="contact" className="scroll-mt-8 mx-auto w-full max-w-6xl px-6 py-20 pb-28">
-          <div className="flex flex-col justify-between gap-10 sm:flex-row">
-            <div>
-              <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                Justin Tseke-Tseke
-              </h2>
-              <a href="mailto:precieuxtjp95@icloud.com" className="mt-4 inline-flex h-12 items-center justify-center rounded-full border border-violet-400/40 px-7 text-sm font-semibold text-violet-200 shadow-[0_0_18px_rgba(167,139,250,0.12)] transition hover:border-violet-300 hover:text-white hover:shadow-[0_0_24px_rgba(167,139,250,0.22)]">
-                precieuxtjp95@icloud.com
-              </a>
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-cyan-400/80">
+            <TypewriterText text="~/contact" />
+          </p>
+          <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            Travaillons ensemble
+          </h2>
+          <p className="mt-2 text-zinc-400">
+            Une idée, un projet, une opportunité ? Envoyez-moi un message directement.
+          </p>
 
-            </div>
+          <ContactForm />
 
-            <div className="flex items-end gap-4 sm:justify-end">
+          <div className="mt-12 flex flex-col gap-6 border-t border-zinc-800 pt-10 sm:flex-row sm:items-center sm:justify-between">
+            <a href="mailto:precieuxtjp95@icloud.com" className="inline-flex h-10 items-center justify-center rounded-full border border-violet-400/40 px-6 text-sm font-semibold text-violet-200 shadow-[0_0_18px_rgba(167,139,250,0.12)] transition hover:border-violet-300 hover:text-white hover:shadow-[0_0_24px_rgba(167,139,250,0.22)] self-start">
+              precieuxtjp95@icloud.com
+            </a>
+            <div className="flex items-center gap-4">
               <a href="https://github.com/Justin-TSK" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-800/80 px-5 py-2.5 text-sm text-zinc-300 transition hover:border-zinc-500 hover:text-white">
                 <SiGithub className="h-4 w-4" />
                 GitHub
