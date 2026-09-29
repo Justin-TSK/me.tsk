@@ -75,3 +75,35 @@ body {
     animation: none !important;
   }
 }
+
+/* ===== Rubik's Cube 3D ===== */
+@keyframes rubik-spin {
+  from { transform: rotateY(0deg) rotateX(-22deg); }
+  to   { transform: rotateY(360deg) rotateX(-22deg); }
+}
+
+.rubik-auto-rotate {
+  animation: rubik-spin 18s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rubik-auto-rotate {
+    animation: none;
+    transform: rotateY(-30deg) rotateX(-22deg);
+  }
+}
+
+/* ===== Rubik's Cube Responsive Scaling ===== */
+.rubik-container {
+  --cube-scale: 0.44;
+}
+@media (min-width: 640px) {
+  .rubik-container {
+    --cube-scale: 0.68;
+  }
+}
+@media (min-width: 1024px) {
+  .rubik-container {
+    --cube-scale: 1;
+  }
+}

@@ -10,6 +10,7 @@ import SkillsSnake from "@/components/SkillsSnake";
 import SiteHeader from "@/components/SiteHeader";
 import SiteBackground from "@/components/SiteBackground";
 import ContactForm from "@/components/ContactForm";
+import RubiksCube from "@/components/RubiksCube";
 
 export default function Home() {
   const recentPosts = getAllPosts().slice(0, 3);
@@ -200,34 +201,42 @@ export default function Home() {
             Notes et r&eacute;flexions sur le d&eacute;veloppement web et l&apos;intelligence artificielle.
           </p>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {recentPosts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 transition duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_28px_rgba(34,211,238,0.12)]"
-              >
-                <p className="font-mono text-xs text-zinc-500">{post.date}</p>
-                <h3 className="mt-2 text-base font-medium text-white transition duration-300 group-hover:text-cyan-300">
-                  {post.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-zinc-400 line-clamp-3">
-                  {post.summary}
-                </p>
-              </Link>
-            ))}
-          </div>
+          <div className="mt-10 lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
+            {/* Colonne gauche : Articles */}
+            <div className="lg:col-span-7 flex flex-col gap-5">
+              {recentPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 transition duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_28px_rgba(34,211,238,0.12)]"
+                >
+                  <p className="font-mono text-xs text-zinc-500">{post.date}</p>
+                  <h3 className="mt-2 text-base font-medium text-white transition duration-300 group-hover:text-cyan-300">
+                    {post.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-zinc-400 line-clamp-2">
+                    {post.summary}
+                  </p>
+                </Link>
+              ))}
 
-          <div className="mt-8">
-            <Link
-              href="/blog"
-              className="group inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200"
-            >
-              Voir tous les articles
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                &rarr;
-              </span>
-            </Link>
+              <div className="mt-2">
+                <Link
+                  href="/blog"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200"
+                >
+                  Voir tous les articles
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    &rarr;
+                  </span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Colonne droite : Rubik's Cube 3D interactif et autonome */}
+            <div className="mt-8 lg:mt-0 lg:col-span-5 flex flex-col items-center justify-center lg:-translate-y-12">
+              <RubiksCube />
+            </div>
           </div>
         </section>
 
